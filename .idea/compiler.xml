@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ChatAPI-interfaces" />
+        <module name="ChatAPI-application" />
+        <module name="ChatAPI-domain" />
+        <module name="ChatAPI-infrastructure" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ChatAPI" options="-parameters" />
+      <module name="ChatAPI-application" options="-parameters" />
+      <module name="ChatAPI-domain" options="-parameters" />
+      <module name="ChatAPI-infrastructure" options="-parameters" />
+      <module name="ChatAPI-interfaces" options="-parameters" />
+    </option>
+  </component>
+</project>
