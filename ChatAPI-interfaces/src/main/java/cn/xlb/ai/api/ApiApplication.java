@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * &#064;created 2024/1/24
  */
 @SpringBootApplication
-public class ApiApplication {
+public class ApiApplication {//SpringBoot启动类
     public static void main(String[] args) {
         SpringApplication.run(ApiApplication.class, args);
     }

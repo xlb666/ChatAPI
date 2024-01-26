@@ -1,2 +1,7 @@
 server:
   port: 8090
+
+ChatAPI:
+  groupId: 28885518425541
+  userId: 585152581822424
+  cookie: zsxq_access_token=11411592-9149-0A83-6995-4273F8245AD3_AA5683D4EFB9652A; abtest_env=product; sajssdk_2015_cross_new_user=1; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22585152581822424%22%2C%22first_id%22%3A%2218d3efd6d36f1d-023841bcff5e2ec-4c657b58-1296000-18d3efd6d371a99%22%2C%22props%22%3A%7B%7D%2C%22identities%22%3A%22eyIkaWRlbnRpdHlfY29va2llX2lkIjoiMThkM2VmZDZkMzZmMWQtMDIzODQxYmNmZjVlMmVjLTRjNjU3YjU4LTEyOTYwMDAtMThkM2VmZDZkMzcxYTk5IiwiJGlkZW50aXR5X2xvZ2luX2lkIjoiNTg1MTUyNTgxODIyNDI0In0%3D%22%2C%22history_login_id%22%3A%7B%22name%22%3A%22%24identity_login_id%22%2C%22value%22%3A%22585152581822424%22%7D%2C%22%24device_id%22%3A%2218d3efd6d36f1d-023841bcff5e2ec-4c657b58-1296000-18d3efd6d371a99%22%7D; zsxqsessionid=869087cdcaabb9506b6b65f167222643

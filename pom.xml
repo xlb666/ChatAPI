@@ -27,7 +27,6 @@
         <version>2.3.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
