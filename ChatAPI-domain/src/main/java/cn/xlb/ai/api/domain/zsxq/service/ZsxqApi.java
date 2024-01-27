@@ -66,6 +66,8 @@ public class ZsxqApi implements IZsxqApi {
          */
 
         AnswerReq answerReq = new AnswerReq(new ReqData(text));
+        //JSONObject是一个Java对象，用于表示JSON格式的数据。它提供了一系列方法来读取和操作JSON数据。
+        //fromObject(Object object)是JSONObject类的一个静态方法，用于将Java对象转换为JSON对象。
         String paramJson = JSONObject.fromObject(answerReq).toString();
 
         StringEntity stringEntity = new StringEntity(paramJson, ContentType.create("text/json", "UTF-8"));

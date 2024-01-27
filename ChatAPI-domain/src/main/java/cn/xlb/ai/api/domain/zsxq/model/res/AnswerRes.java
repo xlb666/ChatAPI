@@ -1,7 +1,7 @@
 package cn.xlb.ai.api.domain.zsxq.model.res;
 
 /**
- * 请求问答接口结果
+ * 请求问答接口结果，回答的结果存储
  */
 public class AnswerRes {
 

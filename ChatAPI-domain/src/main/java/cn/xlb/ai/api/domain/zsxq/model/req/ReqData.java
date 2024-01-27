@@ -1,7 +1,7 @@
 package cn.xlb.ai.api.domain.zsxq.model.req;
 
 /**
- * 请求对象
+ * 请求对象，发送回答的请求，这里只传text。
  */
 public class ReqData {
 

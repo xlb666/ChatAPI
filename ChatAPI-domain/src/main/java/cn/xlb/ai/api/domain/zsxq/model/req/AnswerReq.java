@@ -1,7 +1,7 @@
 package cn.xlb.ai.api.domain.zsxq.model.req;
 
 /**
- * 请求问答接口信息
+ * 请求问答接口，封装了请求对象ReqData
  */
 public class AnswerReq {
 

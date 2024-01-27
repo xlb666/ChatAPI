@@ -3,7 +3,7 @@ package cn.xlb.ai.api.domain.zsxq.model.aggregates;
 import cn.xlb.ai.api.domain.zsxq.model.res.RespData;
 
 /**
- * 评论问题聚合信息
+ * 评论问题聚合信息，是原本的Root类，存储获取的信息
  */
 public class TopicsQuestionsAggregates {
     private boolean succeeded;
