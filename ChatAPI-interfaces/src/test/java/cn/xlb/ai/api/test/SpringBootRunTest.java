@@ -1,5 +1,6 @@
 package cn.xlb.ai.api.test;
 
+import cn.xlb.ai.api.domain.chat.ITongYi;
 import cn.xlb.ai.api.domain.zsxq.IZsxqApi;
 import cn.xlb.ai.api.domain.zsxq.model.aggregates.TopicsQuestionsAggregates;
 import cn.xlb.ai.api.domain.zsxq.model.vo.Topics;
@@ -32,9 +33,14 @@ public class SpringBootRunTest {
     private String cookie;
     @Value("${ChatAPI.userId}")
     private String userId;
+    @Value("${ChatAPI.tyKey}")
+    private String tyKey;
 
     @Resource//用来标记需要注入的资源
     private IZsxqApi zsxqApi;
+
+    @Resource
+    private ITongYi tongyiApi;
 
     @Test
     public void test_zsxqApi() throws IOException {
@@ -54,4 +60,9 @@ public class SpringBootRunTest {
         }
     }
 
+    @Test
+    public void test_TongYiApi() throws IOException {
+        String res = tongyiApi.doChat("1+1等于几", tyKey);
+        logger.info("测试结果：{}", res);
+    }
 }
