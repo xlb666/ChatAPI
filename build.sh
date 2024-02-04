@@ -1,0 +1,1 @@
+ docker build -f ./Dockerfile -t chat-api:1.0 .

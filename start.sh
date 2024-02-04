@@ -1,0 +1,1 @@
+docker run -p 8090:8090 --name chat-api -d chat-api:1.0

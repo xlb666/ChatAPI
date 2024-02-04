@@ -94,7 +94,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>ChatAPI</finalName>
+        <finalName>chat-api</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
