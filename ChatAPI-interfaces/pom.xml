@@ -16,6 +16,7 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--        <start-class>com.ing.tpa.core.test.integration.apns.mock.MockAPNSServer</start-class>-->
     </properties>
 
     <dependencies>
@@ -65,7 +66,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>RELEASE</version>
+            <version>7.4.0</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
@@ -91,57 +92,133 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <finalName>chat-api</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/**</include>
-                </includes>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/**</include>
-                </includes>
-            </testResource>
-        </testResources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-            <plugin>
-                <!--该插件主要用途：构建可执行的JAR -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
+    <!--        <build>-->
+    <!--            <plugins>-->
+    <!--                <plugin>-->
+    <!--                    <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                    <artifactId>maven-shade-plugin</artifactId>-->
+    <!--                    <executions>-->
+    <!--                        <execution>-->
+    <!--                            <phase>package</phase>-->
+    <!--                            <goals>-->
+    <!--                                <goal>shade</goal>-->
+    <!--                            </goals>-->
+    <!--                            <configuration>-->
+    <!--                                <transformers>-->
+    <!--                                    <transformer-->
+    <!--                                            implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+    <!--                                        <mainClass>cn.xlb.ai.api.ApiApplication</mainClass>-->
+    <!--                                    </transformer>-->
+    <!--                                    <transformer-->
+    <!--                                            implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+    <!--                                        <resource>META-INF/spring.handlers</resource>-->
+    <!--                                    </transformer>-->
+    <!--                                    <transformer-->
+    <!--                                            implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">-->
+    <!--                                        <resource>META-INF/spring.factories</resource>-->
+    <!--                                    </transformer>-->
+    <!--                                    <transformer-->
+    <!--                                            implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">-->
+    <!--                                        <resource>META-INF/spring.schemas</resource>-->
+    <!--                                    </transformer>-->
+    <!--                                    <transformer-->
+    <!--                                            implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>-->
+    <!--                                </transformers>-->
+    <!--                            </configuration>-->
+    <!--                        </execution>-->
+    <!--                    </executions>-->
+    <!--                </plugin>-->
+    <!--            </plugins>-->
+    <!--        </build>-->
 
+<!--    <build>-->
+<!--        &lt;!&ndash; 项目最终打包成的名字 &ndash;&gt;-->
+<!--        <finalName>chat-api</finalName>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; 指定maven编译的jdk版本,如果不指定,maven3默认用jdk 1.5 maven2默认用jdk1.3 &ndash;&gt;-->
+<!--                    <source>8</source> &lt;!&ndash; 源代码使用的JDK版本 &ndash;&gt;-->
+<!--                    <target>8</target> &lt;!&ndash; 需要生成的目标class文件的编译版本 &ndash;&gt;-->
+<!--                    <encoding>UTF-8</encoding>&lt;!&ndash; 字符集编码 &ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-shade-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>shade</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <transformers>-->
+<!--                                &lt;!&ndash; 指定启动类 &ndash;&gt;-->
+<!--                                <transformer>-->
+<!--                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                    <mainClass>cn.xlb.ai.api.ApiApplication</mainClass>-->
+<!--                                </transformer>-->
+
+<!--                                &lt;!&ndash; 下面的配置仅针对存在同名资源文件的情况，如没有则不用配置&ndash;&gt;-->
+<!--                                &lt;!&ndash; 有些项目包可能会包含同文件名的资源文件（例如属性文件）&ndash;&gt;-->
+<!--                                &lt;!&ndash; 为避免覆盖，可以将它们的内容合并到一个文件中 &ndash;&gt;-->
+<!--&lt;!&ndash;                                <transformer&ndash;&gt;-->
+<!--&lt;!&ndash;                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <resource>META-INF/spring.handlers</resource>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </transformer>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <transformer&ndash;&gt;-->
+<!--&lt;!&ndash;                                        implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <resource>META-INF/spring.schemas</resource>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </transformer>&ndash;&gt;-->
+<!--                            </transformers>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+
+<!--    <build>-->
+<!--        <finalName>chat-api</finalName>-->
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                <filtering>true</filtering>-->
+<!--                <includes>-->
+<!--                    <include>**/**</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
+<!--        <testResources>-->
+<!--            <testResource>-->
+<!--                <directory>src/test/resources</directory>-->
+<!--                <filtering>true</filtering>-->
+<!--                <includes>-->
+<!--                    <include>**/**</include>-->
+<!--                </includes>-->
+<!--            </testResource>-->
+<!--        </testResources>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>2.12.4</version>-->
+<!--                <configuration>-->
+<!--                    <skipTests>true</skipTests>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>8</source>-->
+<!--                    <target>8</target>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>
